@@ -12,29 +12,19 @@ arch:
   - i386
 image: homeassistant/{arch}-addon-dnsmasq
 init: false
+host_network: true
 options:
-  defaults:
-    - 8.8.8.8
-    - 8.8.4.4
-  forwards: []
-  hosts: []
-  services: []
-ports:
-  53/tcp: 53
-  53/udp: 53
+  rawconfig: |+
+no-resolv
+no-hosts
+keep-in-foreground
+log-queries
+log-facility=-
+no-poll
+user=root
+
 schema:
-  defaults:
+  rawconfig::
     - str
-  forwards:
-    - domain: str
-      server: str
-  hosts:
-    - host: str
-      ip: str
-  services:
-    - host: str
-      port: str
-      priority: int
-      srv: str
-      weight: int
+
 startup: system

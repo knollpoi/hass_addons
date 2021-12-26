@@ -1,14 +1,12 @@
 # Home Assistant Add-on: Dnsmasq
 
-A simple DNS server.
+A simple DNS and DHCP server.
 
 ![Supports aarch64 Architecture][aarch64-shield] ![Supports amd64 Architecture][amd64-shield] ![Supports armhf Architecture][armhf-shield] ![Supports armv7 Architecture][armv7-shield] ![Supports i386 Architecture][i386-shield]
 
 ## About
 
-Setup and manage a Dnsmasq DNS server. This allows you to manipulate DNS
-requests. For example, you can have your Home Assistant domain resolve with
-an internal address inside your network.
+Setup and manage a Dnsmasq server that suports DHCP and DNS. 
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
