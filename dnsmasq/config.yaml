@@ -1,8 +1,8 @@
-version: 1.4.4
+version: 1.0.0
 slug: dnsmasq
-name: Dnsmasq
-description: A simple DNS server
-url: https://github.com/home-assistant/hassio-addons/tree/master/dnsmasq
+name: Dnsmasq with DHCP
+description: DHCP server based on Dnsmasq
+url: https://github.com/knollpoi/hass_addons/tree/master/dnsmasq
 advanced: true
 arch:
   - armhf
@@ -10,31 +10,66 @@ arch:
   - aarch64
   - amd64
   - i386
-image: homeassistant/{arch}-addon-dnsmasq
+# image: knollpoi/{arch}-addon-dnsmasq-dhcp
 init: false
+host_network: true
+privileged:
+  - NET_ADMIN
 options:
-  defaults:
-    - 8.8.8.8
-    - 8.8.4.4
-  forwards: []
-  hosts: []
-  services: []
-ports:
-  53/tcp: 53
-  53/udp: 53
+#  dns_default_resolvers: []
+#  dns_forwards: []
+#  dns_hosts: []
+#  dns_services: []
+  raw_config: []
+  dhcp_ranges: []
+  dhcp_options: []
+  dhcp_hosts: []
+  vendor_options: []
+  vendor_class: []
+  domains: []
 schema:
-  defaults:
-    - str
-  forwards:
-    - domain: str
-      server: str
-  hosts:
-    - host: str
-      ip: str
-  services:
-    - host: str
-      port: str
-      priority: int
-      srv: str
-      weight: int
+  raw_config:
+    - "str?"
+  domains:
+    - domain: "str?"
+      network: "str?"
+      start: "str?"
+      end: "str?"
+  dhcp_ranges:
+    - set: "str?"
+      tag: "str?"
+      start: str
+      end: str
+      mask: str
+      leasetime: str
+  dhcp_options:
+    - tag: "str?"
+      option: str
+      value: str
+  dhcp_hosts:
+    - hostname: "str?"
+      ipv4address: "str?"
+      ignore: "str?"
+      set: "str?"
+  vendor_options:
+    - value: str
+      tag: "str?"
+  vendor_class:
+    - set: "str?"
+      class_string: "str?"
+#  dns_default_resolvers:
+#    - str
+#  dns_forwards:
+#    - domain: str
+#      server: str
+#  dns_hosts:
+#    - host: str
+#      ip: str
+#  dns_services:
+#    - host: str
+#      port: str
+#      priority: int
+#      srv: str
+#      weight: int
+
 startup: system
