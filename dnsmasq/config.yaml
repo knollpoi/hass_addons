@@ -48,6 +48,7 @@ schema:
       value: str
   dhcp_hosts:
     - hostname: "str?"
+      mac_address: "str?"
       ipv4address: "str?"
       ignore: "str?"
       set: "str?"
