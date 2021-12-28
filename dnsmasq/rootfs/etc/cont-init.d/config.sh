@@ -9,4 +9,5 @@ tempio \
     -conf /data/options.json \
     -template /usr/share/tempio/dnsmasq.config \
     -out "${CONFIG}"
-
+echo "OUTPUT HERE..."
+cat ${CONFIG}

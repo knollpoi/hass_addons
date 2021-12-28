@@ -37,15 +37,18 @@ profile dnsmasq flags=(attach_disconnected,mediate_deleted) {
     capability setgid,
     capability setuid,
     capability dac_override,
+    capability net_admin,
     network inet raw,
     network inet6 raw,
 
     /usr/sbin/dnsmasq rm,
 
     /etc/dnsmasq.conf rw,
+    /data/dnsmasq.leases rw,
     /run/*dnsmasq*.pid w,
     /run/dnsmasq/** rw,
     /tmp/* rw,
     /proc/* r,
+    @{PROC}/@{pid}/fd/ r,
   }
 }
