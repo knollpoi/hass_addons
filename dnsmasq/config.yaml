@@ -1,4 +1,4 @@
-version: 1.0.0
+version: 1.0.1
 slug: dnsmasq
 name: Dnsmasq with DHCP
 description: DHCP server based on Dnsmasq
